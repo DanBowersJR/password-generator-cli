@@ -4,6 +4,7 @@
 let length = 8;
 let useNumbers = false;
 let useUppercase = false;
+let useSymbols = false;
 
 // Function to display the help menu
 const showHelp = () => {
@@ -15,9 +16,10 @@ const showHelp = () => {
       --help, -h           Show help menu
       --numbers, -n        Include numbers in the password
       --uppercase, -u      Include uppercase letters in the password
+      --symbols, -s        Include symbols in the password
 
     Example:
-      node index.js --numbers --uppercase   # Generate a password with numbers and uppercase letters
+      node index.js --numbers --uppercase --symbols   # Generate a password with numbers, uppercase letters, and symbols
     `);
     process.exit(0);
 };
@@ -39,6 +41,10 @@ for (let i = 0; i < args.length; i++) {
         case '-u':
             useUppercase = true;
             break;
+        case '--symbols':
+        case '-s':
+            useSymbols = true;
+            break;
         default:
             console.error(`Error: Unknown option '${arg}'`);
             showHelp();
@@ -46,10 +52,11 @@ for (let i = 0; i < args.length; i++) {
 }
 
 // Function to generate a password
-const generatePassword = (length, useNumbers, useUppercase) => {
+const generatePassword = (length, useNumbers, useUppercase, useSymbols) => {
     const lowercase = 'abcdefghijklmnopqrstuvwxyz';
     const numbers = '0123456789';
     const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const symbols = '!@#$%^&*()_+[]{}|;:,.<>?';
 
     let characterPool = lowercase;
 
@@ -59,6 +66,10 @@ const generatePassword = (length, useNumbers, useUppercase) => {
 
     if (useUppercase) {
         characterPool += uppercase;
+    }
+
+    if (useSymbols) {
+        characterPool += symbols;
     }
 
     // Generate the password
@@ -72,5 +83,5 @@ const generatePassword = (length, useNumbers, useUppercase) => {
 };
 
 // Generate and display the password
-const password = generatePassword(length, useNumbers, useUppercase);
+const password = generatePassword(length, useNumbers, useUppercase, useSymbols);
 console.log(`Generated Password: ${password}`);
