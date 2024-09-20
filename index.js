@@ -24,7 +24,7 @@ const showHelp = () => {
     process.exit(0);
 };
 
-// Parse command-line arguments
+// Handle user-provided command-line arguments
 const args = process.argv.slice(2);
 for (let i = 0; i < args.length; i++) {
     const arg = args[i];
@@ -51,7 +51,7 @@ for (let i = 0; i < args.length; i++) {
     }
 }
 
-// Function to generate a password
+// Function to generate user password
 const generatePassword = (length, useNumbers, useUppercase, useSymbols) => {
     const lowercase = 'abcdefghijklmnopqrstuvwxyz';
     const numbers = '0123456789';
@@ -72,7 +72,7 @@ const generatePassword = (length, useNumbers, useUppercase, useSymbols) => {
         characterPool += symbols;
     }
 
-    // Generate password
+    // Generate user password
     let password = '';
     for (let i = 0; i < length; i++) {
         const randomIndex = Math.floor(Math.random() * characterPool.length);
@@ -82,6 +82,6 @@ const generatePassword = (length, useNumbers, useUppercase, useSymbols) => {
     return password;
 };
 
-// Generate and display password
+// Generate and display user password
 const password = generatePassword(length, useNumbers, useUppercase, useSymbols);
 console.log(`Generated Password: ${password}`);
