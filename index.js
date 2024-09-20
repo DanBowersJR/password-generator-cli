@@ -6,7 +6,7 @@ let useNumbers = false;
 let useUppercase = false;
 let useSymbols = false;
 
-// Function to display the help menu
+// Function to display help menu
 const showHelp = () => {
     console.log(`
     Usage:
@@ -72,7 +72,7 @@ const generatePassword = (length, useNumbers, useUppercase, useSymbols) => {
         characterPool += symbols;
     }
 
-    // Generate the password
+    // Generate password
     let password = '';
     for (let i = 0; i < length; i++) {
         const randomIndex = Math.floor(Math.random() * characterPool.length);
@@ -82,6 +82,6 @@ const generatePassword = (length, useNumbers, useUppercase, useSymbols) => {
     return password;
 };
 
-// Generate and display the password
+// Generate and display password
 const password = generatePassword(length, useNumbers, useUppercase, useSymbols);
 console.log(`Generated Password: ${password}`);
