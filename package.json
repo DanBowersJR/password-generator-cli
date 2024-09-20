@@ -1,0 +1,14 @@
+{
+  "name": "password-generator-cli",
+  "version": "1.0.0",
+  "description": "A CLI tool for generating passwords with customizable features like numbers, uppercase letters, and symbols.",
+  "main": "index.js",
+  "bin": {
+    "password-gen": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Daniel Bowers",
+  "license": "MIT"
+}
